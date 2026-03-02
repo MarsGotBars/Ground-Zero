@@ -1,0 +1,16 @@
+.a-different-scroll-snap {
+
+    details {
+        cursor: pointer;
+        width: fit-content;
+
+        &[open]{
+            .summaryStateIcon {
+                transform: rotate(90deg);
+            }
+        }
+        summary {
+            list-style: none;
+        }
+    }
+}

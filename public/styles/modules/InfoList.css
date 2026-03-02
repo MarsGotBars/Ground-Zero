@@ -1,0 +1,22 @@
+@scope (.InfoList) {
+  :scope {
+    color: var(--base-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    [class*="lane-"] {
+      > li {
+        --item-index: sibling-index();
+        display: inline-block;
+
+        background: oklch(
+          73.864% 0.24697 calc(142.765 + (30 * var(--item-index)))
+        );
+
+        a {
+          display: inline-flex;
+        }
+      }
+    }
+  }
+}

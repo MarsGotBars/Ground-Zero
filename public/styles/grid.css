@@ -1,0 +1,15 @@
+.grid {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: var(--padding) repeat(var(--columns), 1fr) var(--padding);
+
+    /* Direct children should expand unless overruled */
+    /* This saves me adding .breakout on every new component */
+    > *:not([class]), .breakout{
+        grid-column: 1 / -1;
+    }
+
+    .full {
+        grid-column: 2 / -2;
+    }
+}

@@ -1,0 +1,15 @@
+---
+layout: default-layout
+title: "Projects"
+pageStyles:
+  - /styles/pages/index.css
+componentStyles:
+  - /styles/modules/InfoList.css
+  - /styles/modules/TagList.css
+---
+<h1>Ground zero</h1>
+<section class="project-list">
+  <h2>Projects</h2>
+  {% render 'organism/List/InfoList'
+    , data: data %}
+</section>

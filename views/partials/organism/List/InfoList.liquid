@@ -1,0 +1,24 @@
+<ul class="InfoList secondary breakout ff-p-20">
+  {% for i in (0..2) %}
+    <li>
+      <ul class="lane-{{i}}">
+        {% assign lane = i %}
+        {% for item in data.linkage %}
+          {% assign slug = item[1].slug %}
+          {% assign title = item[1].title %}
+          {% assign labels = item[1].labels %}
+          {% assign modulated = forloop.index0 | modulo: 3 %}
+          {% if modulated == i %}
+            <li style="--li: {{forloop.index0}};">
+              <a href="/project/{{slug}}">
+                <span>{{ title }}</span>
+                {% render 'organism/List/TagList'
+                  , labels: labels %}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>

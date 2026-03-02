@@ -1,0 +1,7 @@
+<ul class="TagList ff-p-16-bold">
+  {% for label in labels %}
+    <li class="TagListItem {{ label }} tertiary">
+      <span>{{ label | default: "not working" }}</span>
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,13 @@
+body {
+    --padding: 24px;
+    --gap: 8px;
+    --columns: 4;
+    --ff-primary: eurostile, sans-serif;
+    -ff-secondary: arial;
+    
+    @media (min-width: 768px) {
+        --padding: 32px;
+        --gap: 12px;
+        --columns: 12;
+    }
+}

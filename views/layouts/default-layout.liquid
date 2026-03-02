@@ -1,0 +1,16 @@
+{% render 'organism/Head/Head.liquid'
+, title: title  
+, pageStyles: pageStyles  
+, pageScripts: pageScripts  
+, componentStyles: componentStyles %}</head><body class="tertiary">
+{% assign mainStyles = "main--content" | append: " " | append: styles | strip %}
+<main class="{{ mainStyles }}">
+  {{ content }}
+</main>
+
+<!-- Page-specific scripts before closing body -->
+{% if pageScripts.body %}
+  {% for script in pageScripts.body %}
+    <script src="{{ script }}"></script>
+  {% endfor %}
+{% endif %}</body></html>

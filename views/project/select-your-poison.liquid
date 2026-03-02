@@ -1,0 +1,73 @@
+---
+layout: project-layout
+pageStyles:
+  - /styles/pages/s-y-p.css
+title: "Select your poison"
+styles:
+  - grid
+---
+{% assign animals = "Poison dart frog,Garter snake,Pacific newts,Blue ringed octopus, Gorilla crab" | split: "," %}{% assign animalIcon = "🐸,🐍,🦎,🐙,🦀" | split: "," %}{% assign formTypes = "base" %}
+{% assign formTypes = "base,simple" | split: "," %}
+{% assign formTypes = "base,simple,extended" | split: "," %}
+
+<article class="full ff-p">
+  <section class="explanation">
+    {{ data.select-your-poison.info }}
+  </section>
+  {% for formType in formTypes %}
+    <form data-form="{{ formType }}" id="{{ formType }}">
+      <h2>{{ formType | capitalize }} styling</h2>
+      <div class="{{ formType }}-selects">
+        <fieldset>
+          <legend>Single select</legend>
+          <select name="{{ formType }}-single" class="ff-p-20">
+            <button>
+              <selectedcontent></selectedcontent>
+            </button>
+            {% for animal in animals %}
+              <option style="--index: {{forloop.index0}}" value="{{ animal }}">
+                <span class="icon" aria-hidden="true">{{ animalIcon[forloop.index0] }}</span>
+                <span class="option-label">{{ animal }}</span>
+              </option>
+            {% endfor %}
+          </select>
+        </fieldset>
+
+
+        <fieldset>
+          <legend>Multiple select</legend>
+          <select name="{{ formType }}-multi" multiple>
+            <div class="options-grid">
+              {% for animal in animals %}
+                <option value="{{ animal }}">
+                  <span class="icon" aria-hidden="true">{{ animalIcon[forloop.index0] }}</span>
+                  <span class="option-label">{{ animal }}</span>
+                </option>
+              {% endfor %}
+            </div>
+          </select>
+        </fieldset>
+      </div>
+      {% if formTypes not contains "simple" and formTypes not contains "extended" %}
+        <div class="extra-selects">
+          <fieldset>
+            <legend>Multiple select with set size</legend>
+            <select
+              name="extra-multi"
+              id=""
+              multiple
+              size="1">
+              {% for animal in animals %}
+                <option value="{{ animal }}">
+                  <span class="icon" aria-hidden="true">{{ animalIcon[forloop.index0] }}</span>
+                  <span class="option-label">{{ animal }}</span>
+                </option>
+              {% endfor %}
+            </select>
+          </fieldset>
+        </div>
+      {% endif %}
+    </form>
+  {% endfor %}
+
+</article>

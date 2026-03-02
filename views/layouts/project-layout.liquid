@@ -1,0 +1,11 @@
+---
+layout: default-layout
+componentStyles:
+  - /styles/modules/Backlink.css
+---
+
+<h1 class="visually-hidden">{{ title }}</h1>
+{% if hideLink != true %}
+  {% render 'atom/Backlink/Backlink' %}
+{% endif %}
+{{ content }}

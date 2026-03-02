@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "ground-zero",
+  "scripts": {
+    "11": "npx @11ty/eleventy --incremental",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && npx @11ty/eleventy",
+    "dev": "node dev-tools/dev-server.js",
+    "component": "node dev-tools/component-generator.js",
+    "page": "node dev-tools/page-generator.js",
+    "bundle": "node dev-tools/component-bundler.js",
+    "analyze-css": "node dev-tools/component-bundler.js analyze",
+    "inject-css": "node dev-tools/component-bundler.js inject"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "glob": "^13.0.6",
+    "liquidjs": "^10.24.0",
+    "rimraf": "^6.1.3"
+  }
+}

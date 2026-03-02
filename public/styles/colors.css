@@ -1,0 +1,72 @@
+body {
+
+  /* ! test colors */
+
+  --base-1: #FFFFFF; /* Bright White */
+  --base-2: #E63946; /* Crimson Accent */
+  --base-3: #2A2A2D; /* Dark Charcoal */
+  /* Base palette */
+
+  /* Base RGB colors */
+  --base-1: rgb(113, 37, 57);
+  --base-2: rgb(43, 32, 32);
+  --base-3: rgb(218, 218, 218);
+  --base-4: rgb(25, 25, 25);
+
+  /* Convert RGB to OKLCH for browsers that support it */
+  --base-1-oklch: oklch(from var(--base-1) l c h);
+  --base-2-oklch: oklch(from var(--base-2) l c h);
+  --base-3-oklch: oklch(from var(--base-3) l c h);
+  --base-4-oklch: oklch(from var(--base-4) l c h);
+
+  /* Assign OKLCH as the default, with RGB fallback */
+  --base-primary: var(--base-1-oklch, var(--base-1));
+  --base-secondary: var(--base-2-oklch, var(--base-2));
+  --base-tertiary: var(--base-3-oklch, var(--base-3));
+  --base-quaternary: var(--base-4-oklch, var(--base-4));
+
+  color: var(--base-secondary);
+  background: var(--light-1);
+
+  /*  Little experiment
+
+    --base-hue: 30;
+    --base-lightness: 50%;
+    --modifier: 15%;
+    --applicator: 1; 
+
+    --primary-applicator: -1;
+    --primary: oklch(calc(var(--base-lightness) + (var(--modifier) * var(--primary-applicator, 0))) 0.15 var(--base-hue));
+    
+    --secondary-applicator: -2;
+    --secondary: oklch(calc(var(--base-lightness) + (var(--modifier) * var(--secondary-applicator, 0))) 0.15 calc(var(--base-hue) + 160));
+
+    --tertiary-applicator: 1;
+    --tertiary: oklch(calc(var(--base-lightness) + (var(--modifier) * var(--tertiary-applicator, 0))) 0.15 calc(var(--base-hue) + 30)); */
+
+    /* auto generate */
+}
+
+.primary,
+.secondary,
+.tertiary,
+.quaternary {
+  /* Shared modifier logic */
+  --dark-2: oklch(from var(--color) calc(l - 0.1) c h);
+  --dark-1: oklch(from var(--color) calc(l - 0.05) c h);
+  --light-1: oklch(from var(--color) calc(l + 0.1) c h);
+  --light-2: oklch(from var(--color) calc(l + 0.2) c h);
+}
+
+.primary {
+  --color: var(--base-primary);
+}
+.secondary {
+  --color: var(--base-secondary);
+}
+.tertiary {
+  --color: var(--base-tertiary);
+}
+.quaternary {
+  --color: var(--base-quaternary);
+}

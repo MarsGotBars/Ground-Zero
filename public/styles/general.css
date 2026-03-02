@@ -1,0 +1,48 @@
+[class*='ff-p'] {
+	font-family: var(--ff-primary);
+	font-weight: 400;
+    line-height: 1.5;
+}
+
+[class*='ff-s'] {
+	font-family: var(--ff-secondary);
+	font-weight: 400;
+    line-height: 1.5;
+}
+
+[class*='-bold'] {
+	font-weight: 600;
+}
+
+[class*='-16'] {
+	font-size: 1rem;
+}
+
+[class*='-20'] {
+	font-size: 1.25rem;
+}
+
+[class*='-24'] {
+	font-size: 1.5rem;
+}
+
+[class*='-32'] {
+	font-size: 2rem;
+}
+
+a {
+	font-size: inherit;
+	font-weight: inherit;
+	text-decoration: none;
+	letter-spacing: inherit;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+}

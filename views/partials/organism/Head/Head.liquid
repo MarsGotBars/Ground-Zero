@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title | default: "Document"}} | Ground Zero</title>
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/colors.css">
+    <link rel="stylesheet" href="/styles/variables.css">
+    <link rel="stylesheet" href="/styles/grid.css">
+    <link rel="stylesheet" href="/styles/general.css">
+    
+    <!-- Auto-detected component styles -->
+    {% if componentStyles %}
+        {% for style in componentStyles %}
+        <link rel="stylesheet" href="{{ style }}">
+        {% endfor %}
+    {% endif %}
+    
+    <!-- Page-specific styles -->
+    {% if pageStyles %}
+        {% for style in pageStyles %}
+        <link rel="stylesheet" href="{{ style }}">
+        {% endfor %}
+    {% endif %}
+    
+    <!-- Page-specific scripts in head -->
+    {% if pageScripts.head %}
+        {% for script in pageScripts.head %}
+        <script src="{{ script }}" defer></script>
+        {% endfor %}
+    {% endif %}

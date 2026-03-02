@@ -1,0 +1,33 @@
+---
+layout: project-layout
+pageStyles:
+- /styles/pages/a-different-scroll-snap.css
+pageScripts:
+head:
+- /scripts/a-different-scroll-snap.js
+hideLink: true
+---
+
+{% assign userName = "user name" %}
+<section class="a-different-scroll-snap">
+  <ul>
+    {% for index in (1..10) %}
+
+      <li>
+        <details name="user">
+          <summary>{{ userName }}-{{ index }} {% render 'atom/ArrowRight/ArrowRight'
+  , class: "summaryStateIcon" %}</summary>
+          <div class="wrapper">
+            <section>
+              <dl>
+                <dt>title</dt>
+                <dd>info</dd>
+              </dl>
+            </section>
+          </div>
+        </details>
+      </li>
+    {% endfor %}
+
+  </ul>
+</section>
