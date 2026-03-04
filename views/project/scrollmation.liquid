@@ -1,0 +1,47 @@
+---
+layout: project-layout
+title: "Mouse motion"
+componentStyles:
+  - /styles/pages/mouse-motion.css
+pageStyles:
+  - /packages/lenis.css
+pageScripts:
+  head:
+    - /packages/lenisState.js
+hideLink: true
+customTitle: true
+---
+
+<section class="Scrollmation ff-p" id="top">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#top">top</a></li>
+        <li><a href="#center">center</a></li>
+        <li><a href="#bottom">bottom</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 class="title">Scrollmation</h1>
+
+  <ul id="center">
+    {% for i in (1..5) %}
+      {% assign imageWidth = 1400 %}
+      {% assign imageHeight = 767 %}
+      <li class="item">
+
+        <div class="img-wrapper">
+          <img src="https://picsum.photos/id/{{444 |  plus: i}}/{{imageWidth}}/{{imageHeight}}" alt="Picsum stock photo">
+        </div>
+
+
+      </li>
+    {% endfor %}
+  </ul>
+
+</section>
+
+<footer id="bottom">
+  hi <img src="" alt="">
+</footer>

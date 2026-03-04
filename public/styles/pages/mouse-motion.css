@@ -1,0 +1,159 @@
+* {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  animation: adjust_position linear both;
+  animation-timeline: scroll(root);
+}
+
+@property --scroll-position {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --scroll-position-delayed {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --skew {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+body {
+  transition: --scroll-position-delayed 0.15s linear;
+  --scroll-velocity: calc(
+    var(--scroll-position) - var(--scroll-position-delayed)
+  );
+  /* --scroll-speed: abs(var(--scroll-velocity));
+  --scroll-direction: sign(var(--scroll-velocity)); */
+}
+
+.Scrollmation {
+  /* CSS VARS */
+  --header--padding: 16px;
+  --header--height: calc(
+    calc(1em * 1.5) + (2 * var(--header--padding)) + (2 * var(--ul--padding))
+  );
+
+  --nav--padding-bottom: 24px;
+  --nav--border-radius: 12px;
+  --ul--padding: 16px;
+
+  background: rgb(239, 237, 119);
+
+  line-height: 1.5;
+
+  header {
+    font-size: 1.25rem;
+    position: sticky;
+    z-index: 1;
+    width: 100%;
+    
+    /* Wanneer we langs de eerste padding layer zijn */
+    top: calc(var(--padding) * -1);
+
+    container-type: scroll-state;
+
+    nav {
+      position: fixed;
+
+      background: rebeccapurple;
+      color: white;
+      top: 0;
+      min-height: min-content;
+      width: 100%;
+      left: 50%;
+      interpolate-size: allow-keywords;
+      transform: translate(-50%, -0%);
+      transition:
+        transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.75s ease-out,
+        border-radius 1s ease-out;
+      padding: var(--header--padding);
+
+      @container scroll-state(stuck: top) {
+        border-radius: calc(var(--nav--border-radius) + var(--header--padding));
+        width: fit-content;
+        transform: translate(-50%, calc((100vh - (var(--header--height) + var(--nav--padding-bottom)) - (5vh * (var(--scroll-velocity) * 2)))));
+      }
+
+      ul {
+        display: flex;
+        justify-content: end;
+        flex-direction: row;
+        gap: 12px;
+        padding: var(--ul--padding) calc(var(--ul--padding) * 1.25);
+        transition: border-radius 1s ease-out, background 0.5s ease-out, flex .5s ease;
+        @container scroll-state(stuck: top) {
+            justify-content: center;
+            background: oklch(62.793% 0.25768 calc(30 * (var(--scroll-velocity) * 20)));
+
+          border-radius: var(--nav--border-radius);
+        }
+      }
+    }
+  }
+
+  .title {
+    display: grid;
+    place-items: center;
+    color: white;
+    text-transform: uppercase;
+    height: 80svh;
+    width: 100%;
+    animation: discolor both;
+    animation-timeline: scroll();
+  }
+
+  ul {
+    .item {
+      --item-index: calc(1 * sibling-index());
+      --color: oklch(73.864% 0.24697 calc(142.765 + (40 * (var(--item-index) + (var(--scroll-velocity) * 10)))));
+
+      width: 100%;
+      background: var(--color);
+      display: flex;
+      justify-content: end;
+
+      .img-wrapper {
+        width: 100%;
+        max-width: 95vw;
+        min-height: 100%;
+        object-fit: cover;
+
+        img {
+          mix-blend-mode: exclusion;
+        }
+      }
+    }
+  }
+}
+/* 
+
+.variant-picker {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+  } */
+
+@keyframes discolor {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes adjust_position {
+  to {
+    --scroll-position: 1;
+    --scroll-position-delayed: 1;
+  }
+}

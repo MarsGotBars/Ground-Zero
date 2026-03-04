@@ -8,6 +8,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
 
 const linkage = {
+   "scrollmation": {
+    title: "Scrollmation",
+    slug: "scrollmation",
+    description: "CSS only motion on scroll!",
+    status: "WIP",
+    labels: ["project", "code"],
+    date: "2026-03-04",
+  },
   "select-your-poison": {
     title: "Select Your Poison",
     slug: "select-your-poison",
@@ -34,7 +42,7 @@ const linkage = {
   },
   "ultimate-test": {
     title: "Masonry in liquidJS?",
-    slug: "test",
+    slug: "ultimate-test",
     description: "How you can still write static HTML, without the downsides!",
     status: "upcoming",
     labels: ["code"],
@@ -42,7 +50,7 @@ const linkage = {
   },
   "test-test": {
     title: "aaa in liquidJS?",
-    slug: "tesst",
+    slug: "test-test",
     description: "How you can still write static HTML, without the downsides!",
     status: "upcoming",
     labels: ["code"],

@@ -27,6 +27,6 @@
     <!-- Page-specific scripts in head -->
     {% if pageScripts.head %}
         {% for script in pageScripts.head %}
-        <script src="{{ script }}" defer></script>
+        <script src="{{ script }}" type="module"></script>
         {% endfor %}
     {% endif %}

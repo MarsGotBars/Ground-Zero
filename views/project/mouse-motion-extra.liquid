@@ -1,0 +1,24 @@
+<button class="open" command="show-modal" commandfor="variant-picker"><</button>
+  <dialog id="variant-picker">
+    <button commandfor="variant-picker" command="close">Close</button>
+    <form>
+      <fieldset>
+        <legend>Variant</legend>
+        <label>
+          <span>Scroll timeline</span>
+          <input
+            type="radio"
+            name="variant"
+            id="scroll-timeline"
+            checked>
+        </label>
+        <label>
+          <span>Scrollstate</span>
+          <input
+            type="radio"
+            name="variant"
+            id="scroll-state">
+        </label>
+      </fieldset>
+    </form>
+  </dialog>

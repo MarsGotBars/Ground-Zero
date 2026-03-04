@@ -4,7 +4,9 @@ componentStyles:
   - /styles/modules/Backlink.css
 ---
 
-<h1 class="visually-hidden">{{ title }}</h1>
+{% if customTitle != true %}
+  <h1 class="visually-hidden">{{ title }}</h1>
+{% endif %}
 {% if hideLink != true %}
   {% render 'atom/Backlink/Backlink' %}
 {% endif %}

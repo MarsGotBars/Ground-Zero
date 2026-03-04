@@ -20,6 +20,7 @@ Allowing us to finally build the select elements of our dreams, completely styla
 - Styling the element that contains the displayed options when a select is opened!
 - Styling the currently selected option.
 - It even contains the possibility for a checkmark; of which we can, for example, adjust the position with the `position` property that you are already used to!
-- It even includes some `anchor()` positioning; allowing you to anchor the options however you'd like to the `select`
+- It even includes some `anchor()` positioning; allowing you to anchor the options however you'd like to the `select`.
 And a bunch more!
 
+##
