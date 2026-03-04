@@ -13,8 +13,6 @@ const templates = {
     liquid: `---
 layout: default-layout
 title: "{{ title }}"
-componentStyles:
-  - /styles/pages/{{ pageName }}.css
 ---`,
     css: `.{{ pageName }} {
 
@@ -25,8 +23,6 @@ componentStyles:
   project: {
     liquid: `---
 layout: project-layout
-pageStyles:
-  - /styles/pages/{{ pageName }}.css
 ---
 
 <section class="{{ pageName }}">
@@ -45,8 +41,6 @@ layout: blog-layout
 title: "{{ title }}"
 date: "{{ date }}"
 tags: blog
-componentStyles:
-  - /styles/pages/{{ pageName }}.css
 ---
 
 <article class="{{ pageName }}">
