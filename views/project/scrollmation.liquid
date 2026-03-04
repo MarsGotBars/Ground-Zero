@@ -1,8 +1,7 @@
 ---
 layout: project-layout
 title: "Mouse motion"
-componentStyles:
-  - /styles/pages/mouse-motion.css
+
 pageStyles:
   - /packages/lenis.css
 pageScripts:
@@ -10,6 +9,8 @@ pageScripts:
     - /packages/lenisState.js
 hideLink: true
 customTitle: true
+componentStyles:
+  - /styles/modules/Backlink.css
 ---
 
 <section class="Scrollmation ff-p" id="top">
@@ -24,11 +25,12 @@ customTitle: true
   </header>
 
   <h1 class="title">Scrollmation</h1>
-
+  {% assign loopEnd = 5 %}
   <ul id="center">
-    {% for i in (1..5) %}
+    {% for i in (1..loopEnd) %}
       {% assign imageWidth = 1400 %}
       {% assign imageHeight = 767 %}
+
       <li class="item">
 
         <div class="img-wrapper">
@@ -43,5 +45,7 @@ customTitle: true
 </section>
 
 <footer id="bottom">
-  hi <img src="" alt="">
+  {% render 'atom/Backlink/Backlink' %}
+  <img src="/assets/images/steamhappy.webp" alt="me">
+  hi!
 </footer>

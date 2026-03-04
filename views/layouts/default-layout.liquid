@@ -1,8 +1,10 @@
+{% assign specificStyle = title | downcase | split: " " | join: "-" %}
 {% render 'organism/Head/Head.liquid'
-, title: title  
-, pageStyles: pageStyles  
-, pageScripts: pageScripts  
-, componentStyles: componentStyles %}</head><body class="tertiary">
+  , title: title 
+  , pageStyles: pageStyles
+  , specificStyle: specificStyle
+  , pageScripts: pageScripts 
+  , componentStyles: componentStyles %}</head><body class="tertiary">
 {% assign mainStyles = "main--content" | append: " " | append: styles | strip %}
 <main class="{{ mainStyles }}">
   {{ content }}

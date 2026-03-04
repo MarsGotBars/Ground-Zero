@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="/styles/variables.css">
     <link rel="stylesheet" href="/styles/grid.css">
     <link rel="stylesheet" href="/styles/general.css">
+    {% if specificStyle %}
+        
+        <link rel="stylesheet" href="/styles/pages/{{specificStyle}}.css">
+    {% endif %}
     
     <!-- Auto-detected component styles -->
     {% if componentStyles %}

@@ -56,7 +56,7 @@ body {
     position: sticky;
     z-index: 1;
     width: 100%;
-    
+
     /* Wanneer we langs de eerste padding layer zijn */
     top: calc(var(--padding) * -1);
 
@@ -76,13 +76,42 @@ body {
       transition:
         transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
         width 0.75s ease-out,
-        border-radius 1s ease-out;
+        border-radius 1s ease-out,
+        opacity 1.5s ease-in;
       padding: var(--header--padding);
+
+      @starting-style {
+        opacity: 0;
+      }
 
       @container scroll-state(stuck: top) {
         border-radius: calc(var(--nav--border-radius) + var(--header--padding));
         width: fit-content;
-        transform: translate(-50%, calc((100vh - (var(--header--height) + var(--nav--padding-bottom)) - (5vh * (var(--scroll-velocity) * 2)))));
+        transform: translate(
+          -50%,
+          calc(
+            (
+              100svh - (var(--header--height) + var(--nav--padding-bottom)) -
+                (5vh * (var(--scroll-velocity) * -2))
+            )
+          )
+        );
+
+        @starting-style {
+          border-radius: calc(
+            var(--nav--border-radius) + var(--header--padding)
+          );
+          width: fit-content;
+          transform: translate(
+            -50%,
+            calc(
+              (
+                100svh - (var(--header--height) + var(--nav--padding-bottom)) -
+                  (5vh * (var(--scroll-velocity) * -2))
+              )
+            )
+          );
+        }
       }
 
       ul {
@@ -91,10 +120,15 @@ body {
         flex-direction: row;
         gap: 12px;
         padding: var(--ul--padding) calc(var(--ul--padding) * 1.25);
-        transition: border-radius 1s ease-out, background 0.5s ease-out, flex .5s ease;
+        transition:
+          border-radius 1s ease-out,
+          background 0.5s ease-out,
+          flex 0.5s ease;
         @container scroll-state(stuck: top) {
-            justify-content: center;
-            background: oklch(62.793% 0.25768 calc(30 * (var(--scroll-velocity) * 20)));
+          justify-content: center;
+          background: oklch(
+            62.793% 0.25768 calc(30 * (var(--scroll-velocity) * 20))
+          );
 
           border-radius: var(--nav--border-radius);
         }
@@ -116,8 +150,14 @@ body {
   ul {
     .item {
       --item-index: calc(1 * sibling-index());
-      --color: oklch(73.864% 0.24697 calc(142.765 + (40 * (var(--item-index) + (var(--scroll-velocity) * 10)))));
-
+      --color: oklch(
+        73.864% 0.24697
+          calc(
+            142.765 + (40 * (var(--item-index) + (var(--scroll-velocity) * 10)))
+          )
+      );
+      /* for offline testing */
+      min-height: 300px;
       width: 100%;
       background: var(--color);
       display: flex;
@@ -134,6 +174,20 @@ body {
         }
       }
     }
+  }
+}
+footer {
+  --color: oklch(
+    73.864% 0.24697 calc(142.765 + (40 * (5 + (var(--scroll-velocity) * 10))))
+  );
+  transform: translateX(var(--test));
+  background: var(--color);
+  display: flex;
+  align-items: center;
+  font-size: 2em;
+  gap: 1rem;
+  img {
+    height: 2em;
   }
 }
 /* 
